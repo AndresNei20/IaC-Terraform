@@ -2,6 +2,14 @@
 # It does not create resources directly anymore.
 # Instead, it calls reusable modules.
 
+locals {
+  common_tags = merge(var.tags, {
+    Project     = var.project_name
+    Environment = var.environment
+    Owner       = var.owner_name
+  })
+}
+
 # Network module creates:
 # - VPC
 # - Public subnet
@@ -15,7 +23,7 @@ module "network" {
   vpc_cidr           = var.vpc_cidr
   public_subnet_cidr = var.public_subnet_cidr
   availability_zone  = var.availability_zone
-  tags               = var.tags
+  tags               = local.common_tags
 }
 
 # Compute module creates:
@@ -32,5 +40,5 @@ module "compute" {
   instance_type      = var.instance_type
   owner_name         = var.owner_name
   allowed_http_cidr  = var.allowed_http_cidr
-  tags               = var.tags
+  tags               = local.common_tags
 }

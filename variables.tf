@@ -61,13 +61,19 @@ variable "allowed_http_cidr" {
   default     = "0.0.0.0/0"
 }
 
-# Common tags applied to resources.
+# Environment name used in tags.
+variable "environment" {
+  description = "Environment name"
+  type        = string
+  default     = "dev"
+}
+
+# Common base tags applied to resources.
+# Project, Environment, and Owner will be added dynamically in main.tf.
 variable "tags" {
-  description = "Common tags for all AWS resources"
+  description = "Common base tags for all AWS resources"
   type        = map(string)
   default = {
-    Environment = "dev"
-    Project     = "iac-homework"
-    ManagedBy   = "terraform"
+    ManagedBy = "terraform"
   }
 }
