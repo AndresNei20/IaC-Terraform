@@ -1,6 +1,6 @@
 resource "aws_instance" "web" {
-  ami           = "ami-0c55b159cbfafe1f0" # Ubuntu (we can change if needed)
-  instance_type = "t2.micro"
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t3.micro"
 
   user_data = <<-EOF
               #!/bin/bash
