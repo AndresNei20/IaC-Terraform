@@ -1,3 +1,3 @@
-output "project_name" {
-  value = local.project_name
+output "public_ip" {
+  value = aws_instance.web.public_ip
 }
