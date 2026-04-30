@@ -119,8 +119,11 @@ After deployment:
 - Website URL
 
 Example:
-http://<public-ip>
 
+| Name        | Type   | Value                     |
+|------------|--------|---------------------------|
+| public_ip  | string | "3.138.119.73"           |
+| website_url| string | "http://3.138.119.73"    |
 
 ---
 
@@ -136,14 +139,19 @@ No changes. Your infrastructure matches the configuration.
 
 ## 📸 Evidence
 
+### Terraform Cloud Run
+![Runs](images/terraform-runs.png.png)
+![Last Run](images/terraform-last-run.png.png)
+
 ### AWS EC2 Instance
 ![EC2 Instance](images/ec2-instance.png)
 
----
+### Website Output
+![Website Output](images/website-output.png)
 
-## 🔐 Terraform Cloud Access
-
-Access to the Terraform Cloud workspace has been shared for review.
+### Idempotency
+The part that says "**No changes** Your infrastructure matches the configuration"
+![Last Run](images/terraform-last-run.png.png)
 
 ---
 
